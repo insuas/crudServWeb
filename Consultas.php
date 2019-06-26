@@ -50,7 +50,7 @@ class 	Consultas extends SentSql
 
 	{
 
-		$cnx = connexion::conectar();
+		$cnx = conexion::conectar();
 
 		if($cnx === false)
 			

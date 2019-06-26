@@ -39,14 +39,116 @@
 
       <?php
 
-      
-      
-      
+      require "Consultas.php";
+
+      if( isset($_POST['submit_buscar']))
+
+        {
+
+          $submit_actualizar = "submit_actualizar";
+
+          $consultas = new Consultas();
+
+          $table = "persona";
+
+          $idp = $_POST['id_persona'];
+
+          $resultado = $consultas->seleccionar_una_empresa($table, $idp);
+
+          if( isset($resultado))
+
+          {
+            echo"<form action = 'actualizar2.php' method = 'POST'><br> ";
+
+              echo" <div class= 'row'>";
+                // 1
+                echo" <div class= 'col'>";
+
+                  echo"<input type = 'hide' class = 'form-control' placeholder = 'Tipo de Identificación' name = 'idp' value = '$resultado[0]'>";
+
+                echo" </div> ";
+                // 2
+                echo" <div class= 'col'>";
+
+                  echo"<input type = 'text' class = 'form-control' placeholder = 'Tipo de Identificación' name = 'tipo_identificacion' value = '$resultado[1]'>";
+
+                echo" </div> ";
+                // 3
+                echo" <div class= 'col'>";
+
+                  echo"<input type = 'text' class = 'form-control' placeholder = 'Número de Identificación' name = 'numero_identificacion' value = '$resultado[2]'>";
+
+                echo" </div> ";
+                // 4
+                echo" <div class= 'col'>";
+
+                  echo"<input type = 'text' class = 'form-control' placeholder = 'Nombres' name = 'nombres' value = '$resultado[3]'>";
+
+                echo" </div> ";
+                // 5
+                echo" <div class= 'col'>";
+
+                  echo"<input type = 'text' class = 'form-control' placeholder = 'Apellidos' name = 'apellidos' value = '$resultado[4]'>";
+
+                echo" </div> ";
+              // fin 1 fila
+              echo" </div>";
+
+              echo "<br>";
+              // inicio 2 fila
+              echo" <div class= 'row'>";
+                // 1 Género
+                echo" <div class= 'col'>";
+
+                  echo"<input type = 'text' class = 'form-control' placeholder = 'Género' name = 'genero' value = '$resultado[5]'>";
+
+                echo" </div> ";
+                // 2  Fecha de Nacimiento
+                echo" <div class= 'col'>";
+
+                  echo"<input type = 'text' class = 'form-control' placeholder = 'Fecha de Nacimiento' name = 'fecha_nacimiento' value = '$resultado[6]'>";
+
+                echo" </div> ";
+                // 3 pais
+                echo" <div class= 'col'>";
+
+                  echo"<input type = 'text' class = 'form-control' placeholder = 'Pais' name = 'pais' value = '$resultado[7]'>";
+
+                echo" </div> ";
+                // 4
+                echo" <div class= 'col'>";
+
+                  echo"<input type = 'text' class = 'form-control' placeholder = 'Departamento' name = 'departamento' value = '$resultado[8]'>";
+
+                echo" </div> ";
+                // 5
+                echo" <div class= 'col'>";
+
+                  echo"<input type = 'text' class = 'form-control' placeholder = 'Ciudad' name = 'ciudad' value = '$resultado[9]'>";
+
+                echo" </div> ";
+
+                // 6
+                echo" <div class= 'col'>";
+
+                  echo"<input type = 'text' class = 'form-control' placeholder = 'Dirección' name = 'direccion' value = '$resultado[10]'>";
+
+                echo" </div> ";
+              // fin 2 fila
+              echo" </div>";
+
+              echo "<hr>";
+
+              echo" <button type='submit' name = '$submit_actualizar' class = 'btn btn-primary btn-lg btn-block' >Actualizar</button> ";
+
+            echo"</form>";
+
+          }
+
+        }
+
       ?>
-
-
-    
-    </div>
+  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
